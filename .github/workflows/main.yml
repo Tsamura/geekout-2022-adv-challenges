@@ -24,3 +24,10 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+      
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: "main"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
